@@ -26,6 +26,27 @@ def check_permutation_by_count(str1, str2):
     return True
 
 
+
+def check_permutation_by_count_dict(str1, str2):
+    if len(str1) != len(str2):
+        return False
+    Dict1=dict()
+    for c in str1:
+        if c in Dict1.keys():
+            Dict1[c]+=1
+        else:
+            Dict1[c]=1
+            
+    for c in str2:
+        if c in Dict1.keys():
+            Dict1[c]-=1
+            if Dict1[c]<0:
+                return False 
+        else:
+            return False
+    return True
+
+
 def check_permutation_pythonic(str1, str2):
     if len(str1) != len(str2):
         return False
@@ -52,6 +73,7 @@ class Test(unittest.TestCase):
     testable_functions = [
         check_permutation_by_sort,
         check_permutation_by_count,
+        check_permutation_by_count_dict,
         check_permutation_pythonic,
     ]
 
