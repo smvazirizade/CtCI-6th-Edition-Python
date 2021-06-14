@@ -63,8 +63,7 @@ def Bottom_Up(N):
             c=d
         return d
     
-N=100
-Bottom_Up(N)
+
 
 
 
