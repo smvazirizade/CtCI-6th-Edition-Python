@@ -59,8 +59,16 @@ def get_subsets_c(_set):
     recurse([], _set)
     return subsets
 
+# alternative recurise solution more compact
+def SubsetRec(S,superset=[[]]):
+    if len(S)>0:
+            for i in superset:
+                superset=superset+[i+[S[0]]]
+            superset=SubsetRec(S[1:],superset)
+    return superset
 
-testable_functions = [get_subsets_a, get_subsets_b, get_subsets_c]
+
+testable_functions = [get_subsets_a, get_subsets_b, get_subsets_c,SubsetRec]
 
 test_cases = [({1, 2, 3}, {(), (1,), (1, 2), (1, 2, 3), (1, 3), (2,), (2, 3), (3,)})]
 
@@ -79,3 +87,5 @@ if __name__ == "__main__":
     print(get_subsets_b([1, 2, 3]))
     print("")
     print(get_subsets_c([1, 2, 3]))
+    print("")
+    print(SubsetRec([1, 2, 3]))
