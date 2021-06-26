@@ -67,8 +67,18 @@ def SubsetRec(S,superset=[[]]):
             superset=SubsetRec(S[1:],superset)
     return superset
 
+def SubsetRec2(S,superset=[],Ans=[]):
+    print('n')
+    if len(S)>0:
+        Ans=SubsetRecPrint(S[1:],superset,Ans)
+        Ans=SubsetRecPrint(S[1:],superset+[S[0]],Ans)
+    else:
+        print(superset)
+        Ans=Ans+[superset]
+    return Ans
 
-testable_functions = [get_subsets_a, get_subsets_b, get_subsets_c,SubsetRec]
+
+testable_functions = [get_subsets_a, get_subsets_b, get_subsets_c,SubsetRec,SubsetRec2]
 
 test_cases = [({1, 2, 3}, {(), (1,), (1, 2), (1, 2, 3), (1, 3), (2,), (2, 3), (3,)})]
 
